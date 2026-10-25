@@ -1,0 +1,4 @@
+packages:
+  - "packages/*"
+  - "advent-of-code/*"
+  - "everybody-codes/*"

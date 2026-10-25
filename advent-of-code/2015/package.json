@@ -1,0 +1,14 @@
+{
+  "name": "aoc-2015",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Advent of Code 2015 in TypeScript",
+  "scripts": {
+    "test": "tsc && vitest",
+    "test:run": "tsc && vitest run",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@puzzles/utils": "workspace:*"
+  }
+}

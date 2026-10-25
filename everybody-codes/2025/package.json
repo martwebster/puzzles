@@ -1,0 +1,14 @@
+{
+  "name": "ec-2025",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Everybody Codes 2025 in TypeScript",
+  "scripts": {
+    "test": "tsc && vitest",
+    "test:run": "tsc && vitest run",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@puzzles/utils": "workspace:*"
+  }
+}
