@@ -1,13 +1,13 @@
 {
-	"$schema": "./node_modules/oxlint/configuration_schema.json",
-	"plugins": ["typescript", "unicorn", "oxc", "import"],
-	"categories": {
-		"correctness": "error"
-	},
-	"rules": {
-		"no-inner-declarations": "off",
-		"typescript/no-non-null-assertion": "off",
-		"typescript/no-useless-empty-export": "off",
-		"unicorn/require-module-specifiers": "off"
-	}
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc", "import"],
+  "categories": {
+    "correctness": "error"
+  },
+  "rules": {
+    "no-inner-declarations": "off",
+    "typescript/no-non-null-assertion": "off",
+    "typescript/no-useless-empty-export": "off",
+    "unicorn/require-module-specifiers": "off"
+  }
 }

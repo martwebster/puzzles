@@ -42,6 +42,12 @@ importers:
         specifier: workspace:*
         version: link:../../packages/utils
 
+  everybody-codes/2026:
+    dependencies:
+      '@puzzles/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
+
   packages/utils: {}
 
 packages:
