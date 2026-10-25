@@ -21,9 +21,7 @@ export const findChild = (lines: string[]): number => {
 
 		var count = lines[lineIndex]
 			.split("")
-			.filter(
-				(it, index) => it === lines[comp1][index] || it === lines[comp2][index],
-			).length;
+			.filter((it, index) => it === lines[comp1][index] || it === lines[comp2][index]).length;
 		if (count > maxCount) {
 			child = lineIndex;
 			maxCount = count;
@@ -36,9 +34,7 @@ export const findScores = (lines: string[]): number[] => {
 	var matchingScores: number[] = [];
 
 	for (var lineIndex = 0; lineIndex < lines.length; lineIndex++) {
-		var comparisons = lines
-			.removeAtIndex(lineIndex)
-			.map((it) => it.substring(2));
+		var comparisons = lines.removeAtIndex(lineIndex).map((it) => it.substring(2));
 		var line = lines[lineIndex].substring(2).split("");
 
 		var counts = comparisons.map(
@@ -50,10 +46,7 @@ export const findScores = (lines: string[]): number[] => {
 	return matchingScores;
 };
 
-const findParentForChild = (
-	lines: string[],
-	childIndex: number,
-): string | undefined => {
+const findParentForChild = (lines: string[], childIndex: number): string | undefined => {
 	var child = lines[childIndex].substringAfter(":")!.split("");
 	for (var par1 = 0; par1 < lines.length; par1++) {
 		if (par1 === childIndex) {
@@ -111,9 +104,7 @@ export const findParents3 = (lines: string[]): number => {
 			var child = childIndex + 1;
 			var parent1 = Number(parents.substringBefore(":")) + 1;
 			var parent2 = Number(parents.substringAfter(":")) + 1;
-			var found = families.filter(
-				(set) => set.has(child) || set.has(parent1) || set.has(parent2),
-			);
+			var found = families.filter((set) => set.has(child) || set.has(parent1) || set.has(parent2));
 			if (found.length === 0) {
 				var newSet = new Set<number>();
 				newSet.add(parent1);

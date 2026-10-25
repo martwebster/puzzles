@@ -12,15 +12,7 @@ describe(`day ${dayNumber}`, () => {
 		expect(isPresent("bababc", 2)).toBe(true);
 		expect(isPresent("bababc", 3)).toBe(true);
 
-		var lines = [
-			"bababc",
-			"abcdef",
-			"abbcde",
-			"abcccd",
-			"aabcdd",
-			"abcdee",
-			"ababab",
-		];
+		var lines = ["bababc", "abcdef", "abbcde", "abcccd", "aabcdd", "abcdee", "ababab"];
 		expect(count(lines, 2)).toBe(4);
 		expect(count(lines, 3)).toBe(3);
 	});

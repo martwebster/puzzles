@@ -3,10 +3,7 @@ export type Rules = Map<string, Array<string>>;
 export const buildRules = (line: string[]): Rules => {
 	var map = new Map<string, Array<string>>();
 	line.forEach((rule) => {
-		map.set(
-			rule.substringBefore(" > ")!,
-			rule.substringAfter(" > ")!.split(","),
-		);
+		map.set(rule.substringBefore(" > ")!, rule.substringAfter(" > ")!.split(","));
 	});
 	return map;
 };

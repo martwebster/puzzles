@@ -12,4 +12,4 @@ Option - Down - Move line down
 
 Test {. ddd } - Command Shift \ moves between braces
 
-Fold - 
+Fold -

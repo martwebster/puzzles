@@ -114,17 +114,12 @@ export const jumpIfOne: Operation = {
 
 const operations = [half, triple, increment, jump, jumpIfEven, jumpIfOne];
 
-export const compute = (
-	instructions: string[],
-	initialState?: State,
-): State => {
+export const compute = (instructions: string[], initialState?: State): State => {
 	let state: State = initialState ?? { lineNumber: 0, registers: new Map() };
 
 	while (state.lineNumber < instructions.length) {
 		var instuctionLine = instructions[state.lineNumber];
-		var foundOperation = operations.find((operation) =>
-			operation.match(instuctionLine),
-		)!;
+		var foundOperation = operations.find((operation) => operation.match(instuctionLine))!;
 		state = foundOperation.process(instuctionLine, state);
 	}
 	return state;

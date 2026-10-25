@@ -46,8 +46,7 @@ export const calculateSearchBlock = (
 	}
 	var endPos = index + distance;
 	if (endPos < line.length) {
-		searchString =
-			searchString + line.substring(Math.max(startPos, 0), endPos + 1);
+		searchString = searchString + line.substring(Math.max(startPos, 0), endPos + 1);
 	} else if (endPos >= line.length) {
 		searchString = searchString + line.substring(Math.max(startPos, 0));
 	}
@@ -68,13 +67,7 @@ export const calculateBlock = (
 		var charCode = line[index].charCodeAt(0);
 		// lowercase
 		if (charCode >= 97) {
-			var searchString = calculateSearchBlock(
-				line,
-				index,
-				distance,
-				repeatStart,
-				repeatEnd,
-			);
+			var searchString = calculateSearchBlock(line, index, distance, repeatStart, repeatEnd);
 			var charToFind = line[index].toUpperCase();
 			var count = searchString.indicesOf(charToFind).length;
 			total = total + count;
@@ -88,19 +81,14 @@ export const calculateBlock = (
  *
  * This only works if the distance is less than the line length
  */
-export const countPairsinTents = (
-	line: string,
-	distance: number,
-	repeat: number,
-): number => {
+export const countPairsinTents = (line: string, distance: number, repeat: number): number => {
 	if (repeat === 1) {
 		return calculateBlock(line, distance, false, false);
 	}
 
 	if (repeat === 2) {
 		return (
-			calculateBlock(line, distance, false, true) +
-			calculateBlock(line, distance, true, false)
+			calculateBlock(line, distance, false, true) + calculateBlock(line, distance, true, false)
 		);
 	}
 

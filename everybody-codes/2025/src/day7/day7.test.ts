@@ -1,13 +1,7 @@
 import "@puzzles/utils";
 import { describe, expect, test } from "vitest";
 import { readTestData } from "@puzzles/utils";
-import {
-	buildRules,
-	countNames,
-	countNewNames,
-	findName,
-	passName,
-} from "./day7";
+import { buildRules, countNames, countNewNames, findName, passName } from "./day7";
 
 const dayNumber = "7";
 describe(`day ${dayNumber}`, () => {

@@ -56,11 +56,7 @@ export const displayDragonPositions = (pos: Array<Pos>, max: Pos) => {
 	}
 };
 
-export const displaySheep = (
-	sheepLeft: Array<Pos>,
-	sheepEaten: Array<Pos>,
-	max: Pos,
-) => {
+export const displaySheep = (sheepLeft: Array<Pos>, sheepEaten: Array<Pos>, max: Pos) => {
 	for (var y = 0; y < max.y; y++) {
 		var line = "";
 		for (var x = 0; x < max.x; x++) {
@@ -90,20 +86,12 @@ export const countSheep = (data: string[], moves: number): number => {
 	).length;
 };
 
-export const isEaten = (
-	sheep: Pos,
-	safePositions: Array<Pos>,
-	dragons: Array<Pos>,
-): boolean => {
-	var isSafe = safePositions.some(
-		(safe) => safe.x === sheep.x && safe.y === sheep.y,
-	);
+export const isEaten = (sheep: Pos, safePositions: Array<Pos>, dragons: Array<Pos>): boolean => {
+	var isSafe = safePositions.some((safe) => safe.x === sheep.x && safe.y === sheep.y);
 	if (isSafe) {
 		return false;
 	}
-	var isDragon = dragons.some(
-		(dragon) => dragon.x === sheep.x && dragon.y === sheep.y,
-	);
+	var isDragon = dragons.some((dragon) => dragon.x === sheep.x && dragon.y === sheep.y);
 	return isDragon;
 };
 
@@ -128,20 +116,12 @@ export const movingSheep = (data: string[], steps: number): number => {
 			return { x, y };
 		});
 
-		var eatenSheep = sheepPositions.filter((sheep) =>
-			isEaten(sheep, safePositions, dragons),
-		);
+		var eatenSheep = sheepPositions.filter((sheep) => isEaten(sheep, safePositions, dragons));
 		totalEaten = totalEaten + eatenSheep.length;
 
-		console.log(
-			step + 1,
-			eatenSheep.length,
-			"sheep eaten before sheep move",
-			eatenSheep,
-		);
+		console.log(step + 1, eatenSheep.length, "sheep eaten before sheep move", eatenSheep);
 		sheepPositions = sheepPositions.filter(
-			(sheep) =>
-				!eatenSheep.some((eaten) => eaten.x === sheep.x && eaten.y === sheep.y),
+			(sheep) => !eatenSheep.some((eaten) => eaten.x === sheep.x && eaten.y === sheep.y),
 		);
 
 		displaySheep(sheepPositions, eatenSheep, max);
@@ -154,19 +134,11 @@ export const movingSheep = (data: string[], steps: number): number => {
 			y: item.y + 1,
 		}));
 
-		eatenSheep = sheepPositions.filter((sheep) =>
-			isEaten(sheep, safePositions, dragons),
-		);
+		eatenSheep = sheepPositions.filter((sheep) => isEaten(sheep, safePositions, dragons));
 		totalEaten = totalEaten + eatenSheep.length;
-		console.log(
-			step + 1,
-			eatenSheep.length,
-			"sheep eaten this round",
-			eatenSheep,
-		);
+		console.log(step + 1, eatenSheep.length, "sheep eaten this round", eatenSheep);
 		sheepPositions = sheepPositions.filter(
-			(sheep) =>
-				!eatenSheep.some((eaten) => eaten.x === sheep.x && eaten.y === sheep.y),
+			(sheep) => !eatenSheep.some((eaten) => eaten.x === sheep.x && eaten.y === sheep.y),
 		);
 
 		displaySheep(sheepPositions, eatenSheep, max);

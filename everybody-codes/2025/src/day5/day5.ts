@@ -28,9 +28,7 @@ export interface Spine {
 }
 
 export const calcLevelScore = (level: number[]): number => {
-	var filtered = level
-		.filter((num) => num.valueOf() > 0)
-		.map((it) => it.toString());
+	var filtered = level.filter((num) => num.valueOf() > 0).map((it) => it.toString());
 	var result = Number(filtered.join(""));
 	return result;
 };
